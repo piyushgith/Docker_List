@@ -1,5 +1,6 @@
 #print container details
 sudo docker container ls -a
+
 #print container id
 sudo docker container ls -qa
 
@@ -16,6 +17,19 @@ sudo docker container prune
 
 #use as last resort
 #sudo docker system prune -a
+
+The first thing you need to do is to get inside the container and then try to execute your command.
+
+Follow these steps:
+
+Use docker ps to see the name of the existing container ==> sudo docker container ls -a
+
+Then use the command ==> sudo docker exec -it <container name> /bin/bash 
+to get a bash shell in the container.
+Or
+directly use ==> sudo docker exec -it <container name> <command> 
+to execute whatever command you specify in the container.
+
 
 #How to create image springboot
 sudo docker build -t bootjwt -f ./Dockerfile .  
