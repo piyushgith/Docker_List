@@ -1,37 +1,34 @@
-#best tool for monitoring  admin/password
-sudo docker run -d -p 9900:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
-
+#print container details
 sudo docker container ls -a
-
+#print container id
 sudo docker container ls -qa
 
+#stop container
 sudo docker container stop CONTAINER efad16427614
 
+#start container
 sudo docker container start CONTAINER 0169a13b6bbf
 
 sudo docker container ls -qa
 
-#best 
+#best to use
 sudo docker container prune
 
 #use as last resort
 #sudo docker system prune -a
 
-docker build -t bootjwt -f ./Dockerfile.txt .  
+#How to create image springboot
+sudo docker build -t bootjwt -f ./Dockerfile .  
 
 sudo docker build -t bootjwt -f ./Dockerfile .
 
-docker run -p 8080:8080 -t bootjwt 
+#how to run image
+sudo docker run -p 8080:8080 -t bootjwt 
 
-
-sudo docker pull mysql/mysql-server:5.7.24-1.1.8
-
-sudo docker run --interactive --tty ubuntu bash
-
-sudo docker run -p 3306:3306 --name mysql-on-docker -e MYSQL_ROOT_PASSWORD=piyush -e MYSQL_DATABASE=test -e MYSQL_USER=user -e MYSQL_PASSWORD=piyush -d mysql:5.7
-
+#stop multiple 
 sudo docker container stop CONTAINER 07df7d543197 02368d4e3826 8609a8f0bcea 45536e9d665a a17908249b14 f9b05f10a24a
 
+#work with docker-compose.yml only
 sudo docker-compose up
 
 sudo docker container ls -a
@@ -40,13 +37,6 @@ sudo docker container ls -a
 
 sudo docker run -d -p 9900:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 
-sudo docker container ls -a
-
-sudo docker container ls -qa
-
-sudo docker container stop CONTAINER efad16427614
-
-sudo docker container start CONTAINER 0169a13b6bbf
 
 sudo docker container ls -qa
 
@@ -55,40 +45,5 @@ sudo docker container prune
 
 #use as last resort
 #sudo docker system prune -a
-
-docker build -t bootjwt -f ./Dockerfile.txt .  
-
-sudo docker build -t bootjwt -f ./Dockerfile .
-
-docker run -p 8080:8080 -t bootjwt 
-
-
-sudo docker pull mysql/mysql-server:5.7.24-1.1.8
-
-sudo docker run --interactive --tty ubuntu bash
-
-sudo docker run -p 3306:3306 --name mysql-on-docker -e MYSQL_ROOT_PASSWORD=piyush -e MYSQL_DATABASE=test -e MYSQL_USER=user -e MYSQL_PASSWORD=piyush -d mysql:5.7
-
-sudo docker container stop CONTAINER 07df7d543197 02368d4e3826 8609a8f0bcea 45536e9d665a a17908249b14 f9b05f10a24a
-
-sudo docker-compose up
-
-sudo docker container ls -a
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

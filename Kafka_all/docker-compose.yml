@@ -37,3 +37,13 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper-server
+  
+  zoonavigator:
+    image: 'elkozmon/zoonavigator:latest'
+    ports:
+      - '9095:9001'
+    environment:
+        HTTP_PORT: 9095
+        AUTO_CONNECT_CONNECTION_STRING: zookeeper-server:2181
+volumes:
+  zookeeper-server-data:      

@@ -1,0 +1,14 @@
+#best tool for monitoring  admin/password
+sudo docker run -d -p 9900:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+
+sudo docker run -p 3306:3306 --name mysql-on-docker -e MYSQL_ROOT_PASSWORD=piyush -e MYSQL_DATABASE=test -e MYSQL_USER=user -e MYSQL_PASSWORD=piyush -d mysql:5.7
+
+sudo docker run -d --network host -e HTTP_PORT=9095 --name zoonavigator --restart always elkozmon/zoonavigator:latest
+or 
+sudo docker run -d -p 9095:9001  --name zoonavigator --restart always elkozmon/zoonavigator:lates
+
+sudo docker pull mysql/mysql-server:5.7.24-1.1.8
+
+sudo docker run --interactive --tty ubuntu bash
+
+sudo docker run -p 3306:3306 --name mysql-on-docker -e MYSQL_ROOT_PASSWORD=piyush -e MYSQL_DATABASE=test -e MYSQL_USER=user -e MYSQL_PASSWORD=piyush -d mysql:5.7
