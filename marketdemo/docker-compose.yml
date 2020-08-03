@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+
+  mongo-db:
+    container_name: mongo
+    image: mongo:4.2.8
+    restart: always
+    hostname: mongo-db
+    
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: piyush
+      MONGO_INITDB_DATABASE: market
+
+    ports:
+        - 27017:27017
+    volumes:
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+        - data:/data/db
+        - data-bkp:/data/bkp
+    networks: 
+        - stock-network
+
+  market-demo:
+    container_name: market-demo
+    restart: always
+    #build: ./
+    image: piyushprasad2007/marketdemo #this will tag image created by build
+    expose:
+      - "10222"
+    ports: #It will be available on 8080 don't know why may be because war file+tomcat
+      - 10222:10222
+
+    environment: # Pass environment variables to the service
+      SPRING_DATA_MONGODB_URI: mongodb://user:piyush@mongo:27017/market
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: piyush
+    depends_on: # Networks to join (Services on the same network can communicate with each other using their name)
+      - mongo-db
+    networks: 
+      - stock-network
+
+volumes:
+  data:
+  data-bkp:
+
+networks: 
+  stock-network:
