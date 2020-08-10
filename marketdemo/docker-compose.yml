@@ -28,9 +28,9 @@ services:
     #build: ./
     image: piyushprasad2007/marketdemo #this will tag image created by build
     expose:
-      - "10222"
+      - "8080"
     ports: #It will be available on 8080 don't know why may be because war file+tomcat
-      - 10222:10222
+      - 8080:8080
 
     environment: # Pass environment variables to the service
       SPRING_DATA_MONGODB_URI: mongodb://user:piyush@mongo:27017/market
